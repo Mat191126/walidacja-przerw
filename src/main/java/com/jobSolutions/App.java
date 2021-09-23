@@ -13,16 +13,16 @@ public class App {
         newSequence.createExampleDataForNewBreakSequence();
 
         PresenceConfirmationSequence confirmationSequence = new PresenceConfirmationSequence();
-
+        confirmationSequence.createExampleData();
 
         BreakValidatorService breakValidatorService = new BreakValidatorService();
         boolean isProper = breakValidatorService.changePreviousSequence(previousSequence,
                                                                         newSequence, confirmationSequence);
 
         if (isProper) {
-            System.out.println("New break sequence proper");
+            System.out.println("New break definition proper");
         } else {
-            System.out.println("New break sequence incorrect");
+            System.out.println("New break definition incorrect");
         }
     }
 

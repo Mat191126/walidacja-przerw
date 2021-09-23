@@ -1,16 +1,16 @@
 package com.jobSolutions.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class PresenceConfirmation {
 
-    private final Date date;
+    private final LocalDate date;
 
-    public PresenceConfirmation(Date date) {
-        this.date = date;
+    public PresenceConfirmation(int year, int month, int dayOfMonth) {
+        this.date = LocalDate.of(year, month, dayOfMonth);
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 }
