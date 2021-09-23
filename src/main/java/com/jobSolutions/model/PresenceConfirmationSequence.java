@@ -1,8 +1,16 @@
 package com.jobSolutions.model;
 
-import org.springframework.stereotype.Component;
+import java.util.ArrayList;
+import java.util.List;
 
-@Component
 public class PresenceConfirmationSequence {
+    private final List<PresenceConfirmation> presenceConfirmationSequence;
 
+    public PresenceConfirmationSequence() {
+        this.presenceConfirmationSequence = new ArrayList<>();
+    }
+
+    public List<PresenceConfirmation> getPresenceConfirmationSequence() {
+        return presenceConfirmationSequence;
+    }
 }

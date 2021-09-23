@@ -1,8 +1,6 @@
 package com.jobSolutions;
 
-import org.springframework.web.bind.annotation.RestController;
-
-@RestController
 public class BreakValidatorController {
+    // TODO: data presentation in the browser window
 
 }

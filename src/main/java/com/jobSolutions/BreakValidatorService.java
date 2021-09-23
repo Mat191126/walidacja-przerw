@@ -1,8 +1,19 @@
 package com.jobSolutions;
 
-import org.springframework.stereotype.Service;
+import com.jobSolutions.model.BreakSequence;
+import com.jobSolutions.model.PresenceConfirmationSequence;
 
-@Service
 public class BreakValidatorService {
 
+    public boolean changePreviousSequence(BreakSequence previousBreakSequence, BreakSequence newBreakSequence,
+                                          PresenceConfirmationSequence confirmationSequence) {
+        return checkNewSequence(newBreakSequence, confirmationSequence);
+        // TODO: possible additional functionalities
+        //  e.g. changing previous break definition to new one if checkNewSequence return true
+    }
+
+    private boolean checkNewSequence(BreakSequence newBreakSequence,
+                                    PresenceConfirmationSequence confirmationSequence) {
+        return true;
+    }
 }
