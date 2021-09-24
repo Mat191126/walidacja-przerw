@@ -34,8 +34,18 @@ public class Break {
         return this;
     }
 
+    public Break setFrom(DateTime from) {
+        this.from = from;
+        return this;
+    }
+
     public Break setUntil(int year, int month, int dayOfMonth) {
         this.until = new DateTime(year, month, dayOfMonth, 0, 0);
+        return this;
+    }
+
+    public Break setUntil(DateTime until) {
+        this.until = until;
         return this;
     }
 
