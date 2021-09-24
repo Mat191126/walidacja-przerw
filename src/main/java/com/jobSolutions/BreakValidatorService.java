@@ -1,5 +1,6 @@
 package com.jobSolutions;
 
+import com.jobSolutions.model.Break;
 import com.jobSolutions.model.BreakSequence;
 import com.jobSolutions.model.PresenceConfirmationSequence;
 
@@ -14,6 +15,13 @@ public class BreakValidatorService {
 
     private boolean checkNewSequence(BreakSequence newBreakSequence,
                                     PresenceConfirmationSequence confirmationSequence) {
+        checkIfBreakPeriodsOverlaps(newBreakSequence);
         return true;
+    }
+
+    private void checkIfBreakPeriodsOverlaps(BreakSequence newBreakSequence) {
+        for (Break singleBreak : newBreakSequence.getBreakSequence()) {
+            //TODO
+        }
     }
 }

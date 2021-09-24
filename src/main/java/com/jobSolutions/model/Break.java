@@ -1,40 +1,41 @@
 package com.jobSolutions.model;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+import org.joda.time.Period;
+
+import org.joda.time.LocalDate;
 
 public class Break {
 
-    private LocalTime paidBreakTime;
-    private LocalTime requiredWorkingTime;
+    private Period paidBreakTime;
+    private Period requiredWorkingTime;
     private LocalDate from;
     private LocalDate until;
 
     public Break setPaidBreakTime(int hour, int minute) {
-        this.paidBreakTime = LocalTime.of(hour, minute);
+        this.paidBreakTime = new Period(hour, minute, 0, 0);
         return this;
     }
 
     public Break setRequiredWorkingTime(int hour, int minute) {
-        this.requiredWorkingTime = LocalTime.of(hour, minute);
+        this.requiredWorkingTime = new Period(hour, minute, 0, 0);
         return this;
     }
 
     public Break setFrom(int year, int month, int dayOfMonth) {
-        this.from = LocalDate.of(year, month, dayOfMonth);
+        this.from = new LocalDate(year, month, dayOfMonth);
         return this;
     }
 
     public Break setUntil(int year, int month, int dayOfMonth) {
-        this.until = LocalDate.of(year, month, dayOfMonth);
+        this.until = new LocalDate(year, month, dayOfMonth);
         return this;
     }
 
-    public LocalTime getPaidBreakTime() {
+    public Period getPaidBreakTime() {
         return paidBreakTime;
     }
 
-    public LocalTime getRequiredWorkingTime() {
+    public Period getRequiredWorkingTime() {
         return requiredWorkingTime;
     }
 
