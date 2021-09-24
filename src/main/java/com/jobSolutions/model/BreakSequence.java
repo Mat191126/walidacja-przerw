@@ -14,6 +14,8 @@ public class BreakSequence {
         return breakSequence;
     }
 
+    //TODO: method reading data from files e.g from csv file
+
     public void createExampleDataForPreviousBreakSequence() {
         //Example breaks creation
         Break break1 = new Break();
@@ -51,5 +53,25 @@ public class BreakSequence {
         this.breakSequence.add(break4);
         this.breakSequence.add(break5);
         this.breakSequence.add(break6);
+    }
+
+    public void createExampleOverlapingDataForNewBreakSequence() {
+        //Example breaks creation
+        Break break7 = new Break();
+        break7.setPaidBreakTime(0, 15)
+                .setRequiredWorkingTime(7, 0)
+                .setUntil(2021, 2, 15);
+        Break break8 = new Break();
+        break8.setPaidBreakTime(0, 10)
+                .setRequiredWorkingTime(2, 0)
+                .setFrom(2021, 1, 25)
+                .setUntil(2021, 8, 15);
+        Break break9 = new Break();
+        break9.setPaidBreakTime(0, 20)
+                .setFrom(2021, 8, 25);
+
+        this.breakSequence.add(break7);
+        this.breakSequence.add(break8);
+        this.breakSequence.add(break9);
     }
 }

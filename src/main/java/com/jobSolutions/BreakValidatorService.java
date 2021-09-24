@@ -20,7 +20,7 @@ public class BreakValidatorService {
         return true;
     }
 
-    private boolean checkIfBreakPeriodsOverlaps(BreakSequence newBreakSequence) {
+    public boolean checkIfBreakPeriodsOverlaps(BreakSequence newBreakSequence) {
         for (Break singleBreak : newBreakSequence.getBreakSequence()) {
             Interval singleBreakInterval = new Interval(singleBreak.getFrom(), singleBreak.getUntil());
             for (Break singleBreakToCompare :  newBreakSequence.getBreakSequence()) {
