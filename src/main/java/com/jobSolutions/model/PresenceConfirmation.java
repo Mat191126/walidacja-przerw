@@ -1,17 +1,16 @@
 package com.jobSolutions.model;
 
-
-import org.joda.time.LocalDate;
+import org.joda.time.DateTime;
 
 public class PresenceConfirmation {
 
-    private final LocalDate date;
+    private final DateTime date;
 
     public PresenceConfirmation(int year, int month, int dayOfMonth) {
-        this.date = new LocalDate(year, month, dayOfMonth);
+        this.date = new DateTime(year, month, dayOfMonth, 0, 0);
     }
 
-    public LocalDate getDate() {
+    public DateTime getDate() {
         return date;
     }
 }
