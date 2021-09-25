@@ -67,6 +67,7 @@ public class FilesReader {
                                      Integer.parseInt(fromDate[0]));
             }
 
+            System.out.println("ADDED: " + singleBreak.toString());
             breakList.add(singleBreak);
         }
         return breakList;
