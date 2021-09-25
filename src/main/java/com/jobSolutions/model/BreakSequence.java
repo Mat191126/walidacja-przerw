@@ -1,20 +1,31 @@
 package com.jobSolutions.model;
 
+import com.jobSolutions.utils.FilesReader;
+
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class BreakSequence {
     private final List<Break> breakSequence;
+    private final FilesReader filesReader;
 
     public BreakSequence() {
         this.breakSequence = new ArrayList<>();
+        this.filesReader = new FilesReader();
     }
 
     public List<Break> getBreakSequence() {
         return breakSequence;
     }
 
-    //TODO: method reading data from files e.g from csv file
+    public void createExampleDataFromCSVFile(String filename) {
+        try {
+            breakSequence.addAll(filesReader.readCSVFile(filename));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 
     public void createExampleDataForPreviousBreakSequence() {
         //Example breaks creation

@@ -10,7 +10,7 @@ public class App {
         previousSequence.createExampleDataForPreviousBreakSequence();
 
         BreakSequence newSequence = new BreakSequence();
-        newSequence.createExampleDataForNewBreakSequence();
+        newSequence.createExampleDataFromCSVFile("src/main/resources/example-data.csv");
 
         PresenceConfirmationSequence confirmationSequence = new PresenceConfirmationSequence();
         confirmationSequence.createExampleData();
