@@ -71,43 +71,44 @@ public class Break {
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("Break{paidBreakTime=");
-        if (paidBreakTime == null) {
-            stringBuilder.append("null");
-        } else {
-            long hours = paidBreakTime.getStandardMinutes() / 60;
-            long minutes = paidBreakTime.getStandardMinutes() % 60;
-            if (hours < 10) {
-                stringBuilder.append("0");
-            }
-            stringBuilder.append(hours)
-                    .append(":")
-                    .append(minutes);
-            if (minutes == 0) {
-                stringBuilder.append("0");
-            }
-        }
-        stringBuilder.append(", requiredWorkingHours=");
-        if (requiredWorkingTime == null) {
-            stringBuilder.append("null");
-        } else {
-            long hours = requiredWorkingTime.getStandardMinutes() / 60;
-            long minutes = requiredWorkingTime.getStandardMinutes() % 60;
-            if (hours < 10) {
-                stringBuilder.append("0");
-            }
-            stringBuilder.append(hours)
-                    .append(":")
-                    .append(minutes);
-            if (minutes == 0) {
-                stringBuilder.append("0");
-            }
-        }
-        stringBuilder.append(", from=")
-                .append(from.toString(DateTimeFormat.forPattern("dd-MM-yyyy")))
+        stringBuilder.append("Break{paidBreakTime=")
+                .append(durationToString(paidBreakTime))
+                .append(", requiredWorkingHours=")
+                .append(durationToString(requiredWorkingTime))
+                .append(", from=")
+                .append(dateTimeToString(from))
                 .append(", until=")
-                .append(until.toString(DateTimeFormat.forPattern("dd-MM-yyyy")))
+                .append(dateTimeToString(until))
                 .append("}");
         return stringBuilder.toString();
+    }
+
+    private String durationToString(Duration duration) {
+        StringBuilder durationString = new StringBuilder();
+        if (duration == null) {
+            durationString.append("null");
+        } else {
+            long hours = duration.getStandardMinutes() / 60;
+            long minutes = duration.getStandardMinutes() % 60;
+            if (hours < 10) {
+                durationString.append("0");
+            }
+            durationString.append(hours)
+                    .append(":")
+                    .append(minutes);
+            if (minutes == 0) {
+                durationString.append("0");
+            }
+        }
+        return durationString.toString();
+    }
+
+    private String dateTimeToString(DateTime dateTime) {
+        if (dateTime.isEqual(MIN_DATETIME)) {
+            return "-infinity";
+        } else if (dateTime.isEqual(MAX_DATETIME)) {
+            return "infinity";
+        }
+        return dateTime.toString(DateTimeFormat.forPattern("dd-MM-yyyy"));
     }
 }

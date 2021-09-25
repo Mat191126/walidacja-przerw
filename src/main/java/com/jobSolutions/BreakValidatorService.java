@@ -81,7 +81,7 @@ public class BreakValidatorService {
             Interval singleBreakInterval = new Interval(singleBreak.getFrom(), singleBreak.getUntil());
             for (PresenceConfirmation presenceConfirmation :  presenceSequence.getPresenceConfirmationSequence()) {
                 DateTime presenceDate = presenceConfirmation.getDate();
-                System.out.println(presenceConfirmation.toString());
+//                System.out.println(presenceConfirmation.toString());
                 if (singleBreakInterval.contains(presenceDate)) {
                     return true;
                 }
