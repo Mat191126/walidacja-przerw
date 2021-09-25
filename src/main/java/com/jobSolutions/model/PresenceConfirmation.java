@@ -1,6 +1,7 @@
 package com.jobSolutions.model;
 
 import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
 
 public class PresenceConfirmation {
 
@@ -12,5 +13,12 @@ public class PresenceConfirmation {
 
     public DateTime getDate() {
         return date;
+    }
+
+    @Override
+    public String toString() {
+        return "PresenceConfirmation{" +
+                "date=" + date.toString(DateTimeFormat.forPattern("dd-MM-yyyy")) +
+                '}';
     }
 }

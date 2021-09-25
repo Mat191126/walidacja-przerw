@@ -2,7 +2,7 @@ package com.jobSolutions.model;
 
 import org.joda.time.DateTime;
 import org.joda.time.Duration;
-import org.joda.time.Period;
+import org.joda.time.format.DateTimeFormat;
 
 public class Break {
 
@@ -104,9 +104,9 @@ public class Break {
             }
         }
         stringBuilder.append(", from=")
-                .append(from)
+                .append(from.toString(DateTimeFormat.forPattern("dd-MM-yyyy")))
                 .append(", until=")
-                .append(until)
+                .append(until.toString(DateTimeFormat.forPattern("dd-MM-yyyy")))
                 .append("}");
         return stringBuilder.toString();
     }
