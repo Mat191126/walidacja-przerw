@@ -12,7 +12,7 @@ class BreakValidatorServiceTest {
         //Arrange
         BreakValidatorService breakValidatorService = new BreakValidatorService();
         BreakSequence breakSequence = new BreakSequence();
-        breakSequence.createExampleOverlapingDataForNewBreakSequence();
+        breakSequence.createExampleOverlappingDataForNewBreakSequence();
         //Act
         boolean actual = breakValidatorService.checkIfBreakPeriodsOverlaps(breakSequence);
         //Assert
@@ -29,6 +29,30 @@ class BreakValidatorServiceTest {
         boolean actual = breakValidatorService.checkIfBreakPeriodsOverlaps(breakSequence);
         //Assert
         assertFalse(actual, "Method should return false");
+    }
+
+    @Test
+    void checkIfRequiredWorkingTimeEnough_ReturnFalse_WhenRequiredWorkingTimeNotEnough() {
+        //Arrange
+        BreakValidatorService breakValidatorService = new BreakValidatorService();
+        BreakSequence breakSequence = new BreakSequence();
+        breakSequence.createExampleDataForNewBreakSequence();
+        //Act
+        boolean actual = breakValidatorService.checkIfRequiredWorkingTimeEnough(breakSequence);
+        //Assert
+        assertFalse(actual, "Method should return false");
+    }
+
+    @Test
+    void checkIfRequiredWorkingTimeEnough_ReturnTrue_WhenRequiredWorkingTimeEnough() {
+        //Arrange
+        BreakValidatorService breakValidatorService = new BreakValidatorService();
+        BreakSequence breakSequence = new BreakSequence();
+        breakSequence.createExampleDataForNewBreakSequenceWithEnoughWorkingHours();
+        //Act
+        boolean actual = breakValidatorService.checkIfRequiredWorkingTimeEnough(breakSequence);
+        //Assert
+        assertTrue(actual, "Method should return true");
     }
 
 }

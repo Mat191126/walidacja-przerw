@@ -55,7 +55,7 @@ public class BreakSequence {
         this.breakSequence.add(break6);
     }
 
-    public void createExampleOverlapingDataForNewBreakSequence() {
+    public void createExampleOverlappingDataForNewBreakSequence() {
         //Example breaks creation
         Break break7 = new Break();
         break7.setPaidBreakTime(0, 15)
@@ -73,5 +73,26 @@ public class BreakSequence {
         this.breakSequence.add(break7);
         this.breakSequence.add(break8);
         this.breakSequence.add(break9);
+    }
+
+    public void createExampleDataForNewBreakSequenceWithEnoughWorkingHours() {
+        //Example breaks creation
+        Break break10 = new Break();
+        break10.setPaidBreakTime(0, 15)
+                .setRequiredWorkingTime(7, 0)
+                .setUntil(2021, 2, 15);
+        Break break11 = new Break();
+        break11.setPaidBreakTime(0, 10)
+                .setRequiredWorkingTime(6, 0)
+                .setFrom(2021, 1, 25)
+                .setUntil(2021, 8, 15);
+        Break break12 = new Break();
+        break12.setPaidBreakTime(0, 20)
+                .setRequiredWorkingTime(9, 0)
+                .setFrom(2021, 8, 25);
+
+        this.breakSequence.add(break12);
+        this.breakSequence.add(break11);
+        this.breakSequence.add(break12);
     }
 }
