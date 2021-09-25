@@ -13,7 +13,7 @@ public class App {
         newSequence.createExampleDataForNewBreakSequence();
 
         PresenceConfirmationSequence confirmationSequence = new PresenceConfirmationSequence();
-//        confirmationSequence.createExampleData();
+        confirmationSequence.createExampleData();
 
         BreakValidatorService breakValidatorService = new BreakValidatorService();
         boolean isProper = breakValidatorService.changePreviousSequence(previousSequence,
