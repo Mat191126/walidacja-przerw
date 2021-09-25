@@ -39,7 +39,7 @@ public class BreakSequence {
         //Example breaks creation
         Break break4 = new Break();
         break4.setPaidBreakTime(0, 15)
-                .setRequiredWorkingTime(7, 0)
+                .setRequiredWorkingTime(7, 30)
                 .setUntil(2021, 1, 15);
         Break break5 = new Break();
         break5.setPaidBreakTime(0, 10)

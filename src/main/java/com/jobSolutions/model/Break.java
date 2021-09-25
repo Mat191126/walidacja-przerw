@@ -1,6 +1,7 @@
 package com.jobSolutions.model;
 
 import org.joda.time.DateTime;
+import org.joda.time.Duration;
 import org.joda.time.Period;
 
 public class Break {
@@ -9,8 +10,8 @@ public class Break {
     private final DateTime MIN_DATETIME = DateTime.now().minusYears(2000);
     private final DateTime MAX_DATETIME = DateTime.now().plusYears(2000);
 
-    private Period paidBreakTime;
-    private Period requiredWorkingTime;
+    private Duration paidBreakTime;
+    private Duration requiredWorkingTime;
     private DateTime from;
     private DateTime until;
 
@@ -20,12 +21,14 @@ public class Break {
     }
 
     public Break setPaidBreakTime(int hour, int minute) {
-        this.paidBreakTime = new Period(hour, minute, 0, 0);
+        long minutes = hour * 60L + minute;
+        this.paidBreakTime = Duration.standardMinutes(minutes);
         return this;
     }
 
     public Break setRequiredWorkingTime(int hour, int minute) {
-        this.requiredWorkingTime = new Period(hour, minute, 0, 0);
+        long minutes = hour * 60L + minute;
+        this.requiredWorkingTime = Duration.standardMinutes(minutes);
         return this;
     }
 
@@ -49,11 +52,11 @@ public class Break {
         return this;
     }
 
-    public Period getPaidBreakTime() {
+    public Duration getPaidBreakTime() {
         return paidBreakTime;
     }
 
-    public Period getRequiredWorkingTime() {
+    public Duration getRequiredWorkingTime() {
         return requiredWorkingTime;
     }
 
@@ -63,5 +66,48 @@ public class Break {
 
     public DateTime getUntil() {
         return until;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("Break{paidBreakTime=");
+        if (paidBreakTime == null) {
+            stringBuilder.append("null");
+        } else {
+            long hours = paidBreakTime.getStandardMinutes() / 60;
+            long minutes = paidBreakTime.getStandardMinutes() % 60;
+            if (hours < 10) {
+                stringBuilder.append("0");
+            }
+            stringBuilder.append(hours)
+                    .append(":")
+                    .append(minutes);
+            if (minutes == 0) {
+                stringBuilder.append("0");
+            }
+        }
+        stringBuilder.append(", requiredWorkingHours=");
+        if (requiredWorkingTime == null) {
+            stringBuilder.append("null");
+        } else {
+            long hours = requiredWorkingTime.getStandardMinutes() / 60;
+            long minutes = requiredWorkingTime.getStandardMinutes() % 60;
+            if (hours < 10) {
+                stringBuilder.append("0");
+            }
+            stringBuilder.append(hours)
+                    .append(":")
+                    .append(minutes);
+            if (minutes == 0) {
+                stringBuilder.append("0");
+            }
+        }
+        stringBuilder.append(", from=")
+                .append(from)
+                .append(", until=")
+                .append(until)
+                .append("}");
+        return stringBuilder.toString();
     }
 }
