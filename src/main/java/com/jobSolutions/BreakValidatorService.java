@@ -27,7 +27,7 @@ public class BreakValidatorService {
                 .append(isPeriodOverlap)
                 .append("\n");
 
-        //Optionally check if required working time is at least 6h
+        //Optional check if required working time is at least 6h
         boolean isRequiredWorkingTimeEnough = true;
         if (IS_WORKING_TIME_CHECKED) {
             isRequiredWorkingTimeEnough = checkIfRequiredWorkingTimeEnough(newBreakSequence);

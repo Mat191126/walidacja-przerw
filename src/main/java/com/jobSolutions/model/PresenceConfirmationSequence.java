@@ -15,6 +15,7 @@ public class PresenceConfirmationSequence {
     }
 
     public void createExampleData() {
+        // Example presence confirmation creation
         PresenceConfirmation presenceConfirmation1 = new PresenceConfirmation(2021, 1, 2);
         PresenceConfirmation presenceConfirmation2 = new PresenceConfirmation(2021, 2, 3);
         PresenceConfirmation presenceConfirmation3 = new PresenceConfirmation(2020, 10, 21);
@@ -25,6 +26,7 @@ public class PresenceConfirmationSequence {
     }
 
     public void createExampleNotCollidingData() {
+        // Example presence confirmation creation
         PresenceConfirmation presenceConfirmation4 = new PresenceConfirmation(2021, 1, 17);
         PresenceConfirmation presenceConfirmation5 = new PresenceConfirmation(2021, 8, 23);
 
