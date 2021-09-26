@@ -21,7 +21,7 @@ public class BreakSequence {
 
     public void createExampleDataFromCSVFile(String filename) {
         try {
-            breakSequence.addAll(filesReader.readCSVFile(filename));
+            breakSequence.addAll(filesReader.createBreakFromFile(filename));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }

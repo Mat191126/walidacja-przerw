@@ -10,10 +10,10 @@ public class App {
         previousSequence.createExampleDataForPreviousBreakSequence();
 
         BreakSequence newSequence = new BreakSequence();
-        newSequence.createExampleDataFromCSVFile("src/main/resources/example-data/example-data.csv");
+        newSequence.createExampleDataFromCSVFile("src/main/resources/example-data/breaks.csv");
 
         PresenceConfirmationSequence confirmationSequence = new PresenceConfirmationSequence();
-        confirmationSequence.createExampleData();
+        confirmationSequence.createExampleDataFromCSVFile("src/main/resources/example-data/presence-confirmations.csv");
 
         BreakValidatorService breakValidatorService = new BreakValidatorService();
         boolean isProper = breakValidatorService.changePreviousSequence(previousSequence,

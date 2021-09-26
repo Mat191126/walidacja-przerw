@@ -1,10 +1,14 @@
 package com.jobSolutions.model;
 
+import com.jobSolutions.utils.FilesReader;
+
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class PresenceConfirmationSequence {
     private final List<PresenceConfirmation> presenceConfirmationSequence;
+    private final FilesReader filesReader = new FilesReader();
 
     public PresenceConfirmationSequence() {
         this.presenceConfirmationSequence = new ArrayList<>();
@@ -12,6 +16,14 @@ public class PresenceConfirmationSequence {
 
     public List<PresenceConfirmation> getPresenceConfirmationSequence() {
         return presenceConfirmationSequence;
+    }
+
+    public void createExampleDataFromCSVFile(String filename) {
+        try {
+            presenceConfirmationSequence.addAll(filesReader.createPresenceConfirmationFromFile(filename));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     public void createExampleData() {
