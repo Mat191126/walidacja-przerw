@@ -1,0 +1,6 @@
+Złożoność czasowa:
+n^2 + n + n^2 = 2n^2 + n = n^2
+o(n) = n^2
+
+Obliczone na podstawie metod checkIfBreakPeriodsOverlaps(), checkIfRequiredWorkingTimeEnough()
+i checkIfPresenceConfirmationCollideBreakPeriod()
